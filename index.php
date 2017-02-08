@@ -20,7 +20,7 @@ include_once "core/Medigraf/Curl.php";
 include_once "core/Medigraf/Template.php";
 
 // Site
-include_once "core/Site/Site.php";
+//include_once "core/Site/Site.php";
 
 $container = new \Slim\Container();
 
@@ -41,27 +41,7 @@ $app = new \Slim\App($container);
  ###################################################################################################
 */
     $app->get("/", "ControlHome:__invoke");
-
-    $app->get("/vehiculos/{modelo}", "ControlVehicles:__invoke");
-
-    $app->get("/news", "ControlBlog:__invoke");
-    $app->get("/news/{new}", "ControlBlogDetails:__invoke");
-    $app->get("/discovery-sport-rwc", "ControlBlogDetailsEspecial:__invoke");
-    $app->get("/discovery-sport-rwc/reglamento", "ControlBlogDetailsEspecialRules:__invoke");
-
-    $app->get("/agenda/prueba-de-manejo", "ControlTestDrive:__invoke");
-    $app->get("/agenda/prueba-de-manejo/{producto}", "ControlTestDriveByModel:__invoke");
-
-    $app->get("/financiamiento", "ControlFinancing:__invoke");
-    $app->get("/financiamiento/{producto}", "ControlFinancingModel:__invoke");
-
-    $app->get("/agencia/land-rover/{agencia}", "ControlAgencieContact:__invoke");
-
-    //$app->get("/servicio/{servicio}", "ControlServiceContact:__invoke");
-    $app->get("/servicio/land-rover-guadalajara", "ControlServiceContactGdl:__invoke");  
-    $app->get("/servicio/land-rover-country", "ControlServiceContactCountry:__invoke");  
-      
-    $app->get("/aviso-de-privacidad", "ControlPrivacyNotice:__invoke");
+    //$app->get("/aviso-de-privacidad", "ControlPrivacyNotice:__invoke");
     //
     $app->run();
 /*
@@ -80,7 +60,7 @@ $app = new \Slim\App($container);
         private $router;
         private $curl;
         private $template;
-        private $site;
+        //private $site;
         // CONSTRUCT 
         function __construct($masterConfigArray, $twigConfig, $name) {
             //BASES
@@ -106,7 +86,7 @@ $app = new \Slim\App($container);
                 )
             );
             //SITE
-            $this->site = new Site();
+            //$this->site = new Site();
         }
         // GETTERS 
         public function getBases() {
@@ -121,9 +101,11 @@ $app = new \Slim\App($container);
         public function getTemplate() {
             return $this->template;
         }
+        /*
         public function getSite() {
             return $this->site;
         }
+        */
         // ABSTRACTS     
         abstract public function __invoke($request, $response, $args);
     }
@@ -137,12 +119,13 @@ $app = new \Slim\App($container);
         function __construct() {
             parent::__construct(
                 array(
-                    "title" => "Land Rover Guadalajara y Country: Página no encontrada",
-                    "title_header" => "Land Rover Guadalajara y Country: Página no encontrada"
+                    "title" => "Página no encontrada",
+                    "title_header" => "Página no encontrada"
                 ),
                 array(),
                 "404/_404.twig"
             );
+            /*
             // Facebook Metatags
             parent::getTemplate()->makeFacebookTags(
                 "Land Rover Guadalajara y Country: Página no encontrada",
@@ -150,6 +133,7 @@ $app = new \Slim\App($container);
                 "Land Rover Guadalajara y Country: Página no encontrada",
                 _HOST . "img/logo/logo_jaguar.png"
             );
+            */
         }
         public function __invoke($request, $response, $args) {
         }   
@@ -160,12 +144,13 @@ $app = new \Slim\App($container);
         function __construct() {
             parent::__construct(
                 array(
-                    "title" => "Land Rover Guadalajara y Country",
-                    "title_header" => "Land Rover Guadalajara y Country"
+                    "title" => "Composer",
+                    "title_header" => "Composer"
                 ),
                 array(),
                 "home/_home.twig"
             );
+            /*
             // Facebook Metatags
             parent::getTemplate()->makeFacebookTags(
                 "Land Rover Guadalajara y Country",
@@ -173,22 +158,14 @@ $app = new \Slim\App($container);
                 "Land Rover Guadalajara y Country",
                 _HOST . "img/logo/logo_jaguar.png"
             );
+            */
         }
         public function __invoke($request, $response, $args) {
-            parent::getRouter()->setRouteParams($request, $response, $args);
-            parent::getTemplate()->addToMasterConfigArray(parent::getRouter()->getArgs());
-
-            $vehicles = parent::getSite()->getNavVehiclesArray();
-            $services = parent::getSite()->getNavServicesArray();
-            $agencies = parent::getSite()->getNavAgenciesArray();
-            parent::getTemplate()->addToMasterConfigArray('vehpa', $vehicles);
-            parent::getTemplate()->addToMasterConfigArray('serpa', $services);
-            parent::getTemplate()->addToMasterConfigArray('agnpa', $agencies);
-
             parent::getTemplate()->display();
             //echo "<pre>", print_r(parent::getTemplate()->getMasterConfigArray()), "</pre>";
         }
     }
+    /*
     // CONTROL PRIVACY NOTICE
     class ControlPrivacyNotice extends ControlMaster {
         function __construct() {
@@ -214,3 +191,4 @@ $app = new \Slim\App($container);
             //echo "<pre>", print_r(parent::getTemplate()->getMasterConfigArray()), "</pre>";
         }
     }
+	*/

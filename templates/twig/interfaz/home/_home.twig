@@ -1,0 +1,9 @@
+{% extends "main.twig" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content_current %}
+{% endblock %}
+{% block script_load_js %}
+	{#{% embed "super_loadjs.twig" %}{% endembed %}#}
+	<input type="hidden" name="section" id="section" value="home">
+{% endblock %}
+{% block load_scripts %}{% endblock %}

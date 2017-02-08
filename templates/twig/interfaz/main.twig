@@ -13,6 +13,7 @@
 				<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
 				<meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
 
+				{#
 				<meta name="title" content="LAND ROVER GUADALAJARA Y COUNTRY">
 				<meta name="identifier-url" content="{{ _host }}" />
 				<meta name="keywords" content="Land Rover Guadalajara y Country, Seminuevos Premium, Eurocavsa" />
@@ -40,25 +41,27 @@
 					<meta property="og:site_name" content="{{ tag_site_name }}" />
 				{% endblock %}
 			{% endblock %}
+			#}
 
 			<title>
 				{% block title %}
-					LAND ROVER GUADALAJARA Y COUNTRY
+					Composer
 				{% endblock %}
 			</title>
 			
 			{% block links %}
                 <link rel="stylesheet" href="{{ _host }}css/styles.css">
-                <link rel="stylesheet" href="{{ _host }}css/import.css">
 				{#
                 <link rel="stylesheet" href="{{ _host }}css/styles.min.css">
                 #}
 
+				{#
 				<link rel="alternate" hreflang="es" href="{{ _host }}" />
+				#}
 				<link href="http://fonts.googleapis.com/css?family=Roboto:100,400,300,700,400italic,500%7CMontserrat:400,700" rel="stylesheet" type="text/css">
-				<link rel="shortcut icon" href="{{ _host }}img/ico/icolandrover.ico">
+				<link rel="shortcut icon" href="{{ _host }}img/ico/favicon.ico">
 			{% endblock %}
-			<script>
+			{#<script>
 				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -66,7 +69,7 @@
 
 				ga('create', 'UA-60846439-2', 'auto');
 				ga('send', 'pageview');
-			</script>
+			</script>#}
 			<!--[if lt IE 9]>
 				<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 			<![endif]-->
@@ -111,6 +114,7 @@
 				    }
 				</script>
             {% endblock %}
+            {#
             <!-- Facebook Pixel Code -->
 			<script>
 				!function(f,b,e,v,n,t,s)
@@ -128,8 +132,9 @@
 		 		<img height="1" width="1" src="https://www.facebook.com/tr?id=388345931302119&ev=PageView &noscript=1"/>
 			</noscript>
 			<!-- End Facebook Pixel Code -->
+			#}
 		</head>
-		<body id="index">
+		<body class="home blog wpb-js-composer js-comp-ver-4.12.1 vc_responsive">
 			{# Auxiliar Master Host #}
 			<input id="master-host" type="hidden" value="{{ _host }}">
 			{# Auxiliar Temporal Inputs's DIV #}
@@ -138,19 +143,19 @@
 	        <div id="hidden-inputs-temporal"></div>
 			{# Begin: Header - nav container #}
 			<div class="nav-container">
-				{% embed "super_navbar.twig" %}{% endembed %}
+				{% embed "main_navbar.twig" %}{% endembed %}
 			</div>
 			{# Begin: Section container #}
 			<div class="main-container" id="header">
 				{# Templates's DIV #}
 			    <div class="wrapper_content_interactive" id='content-temporal-interactive'>
 			    	{% block content_current %}{% endblock %}
-			    	{% block script_load_js %}{% endblock %}	    			
+			    	{% block script_load_js %}{% endblock %}
 			    </div>
 			    <div></div>
 			    {# Begin: Footer container #}
 		    	<footer class="footer-6">
-					{% embed "super_footer.twig" %}{% endembed %}
+					{#{% embed "super_footer.twig" %}{% endembed %}#}
 			    </div>
 			</div>
 			{#
@@ -159,7 +164,6 @@
 	        {% block body_scripts %}
 	            {# CORE LIBS #}
 	            <script src="{{ _host }}lib/min/core.lib.min.js"></script>
-	            <script src='{{ _host }}lib/min/flexslider.min.js'></script>
 
 	            {# GOOGLE API #}
 	            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCqo-F2TnMAABZvfV5yTQLlWvUCJlJViU&amp;sensor=false"></script>
