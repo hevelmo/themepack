@@ -12,7 +12,6 @@ class __TwigTemplate_9f86b3d49772fa1de367dbe997d15ade253c46f32ad055bcbb69c1d4d88
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'content_current' => array($this, 'block_content_current'),
-            'script_load_js' => array($this, 'block_script_load_js'),
             'load_scripts' => array($this, 'block_load_scripts'),
         );
     }
@@ -38,17 +37,7 @@ class __TwigTemplate_9f86b3d49772fa1de367dbe997d15ade253c46f32ad055bcbb69c1d4d88
     {
     }
 
-    // line 5
-    public function block_script_load_js($context, array $blocks = array())
-    {
-        // line 6
-        echo "\t";
-        // line 7
-        echo "\t<input type=\"hidden\" name=\"section\" id=\"section\" value=\"home\">
-";
-    }
-
-    // line 9
+    // line 10
     public function block_load_scripts($context, array $blocks = array())
     {
     }
@@ -65,15 +54,16 @@ class __TwigTemplate_9f86b3d49772fa1de367dbe997d15ade253c46f32ad055bcbb69c1d4d88
 
     public function getDebugInfo()
     {
-        return array (  52 => 9,  47 => 7,  45 => 6,  42 => 5,  37 => 3,  31 => 2,  11 => 1,);
+        return array (  41 => 10,  36 => 3,  30 => 2,  11 => 1,);
     }
 }
 /* {% extends "main.twig" %}*/
 /* {% block title %}{{ title }}{% endblock %}*/
-/* {% block content_current %}*/
-/* {% endblock %}*/
+/* {% block content_current %}{% endblock %}*/
+/* {#*/
 /* {% block script_load_js %}*/
-/* 	{#{% embed "super_loadjs.twig" %}{% endembed %}#}*/
+/* 	{% embed "super_loadjs.twig" %}{% endembed %}*/
 /* 	<input type="hidden" name="section" id="section" value="home">*/
 /* {% endblock %}*/
+/* #}*/
 /* {% block load_scripts %}{% endblock %}*/

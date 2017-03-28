@@ -41,7 +41,8 @@ $app = new \Slim\App($container);
  ###################################################################################################
 */
     $app->get("/", "ControlHome:__invoke");
-    //$app->get("/aviso-de-privacidad", "ControlPrivacyNotice:__invoke");
+    $app->get("/pagina-no-encontrada", "Control404:__invoke");
+    $app->get("/aviso-de-privacidad", "ControlPrivacyNotice:__invoke");
     //
     $app->run();
 /*
